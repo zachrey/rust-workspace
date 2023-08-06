@@ -1,2 +1,3 @@
-pub mod args;
 pub mod instance;
+mod args;
+mod interval;

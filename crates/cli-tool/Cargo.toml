@@ -8,3 +8,5 @@ workspace = "../.."
 
 [dependencies]
 clap = { version = "4.3.19", features = ["derive"] }
+tokio = { version = "1.29.1", features = ["full"] }
+futures = { version = "0.3" }
