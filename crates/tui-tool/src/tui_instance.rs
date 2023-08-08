@@ -18,7 +18,7 @@ fn config_global(siv: &mut CursiveRunnable) {
 }
 
 fn config_layer(siv: &mut CursiveRunnable) {
-    for func in get_layers().iter() {
-        func(siv);
+    for v in get_layers().into_iter() {
+        siv.add_layer(v);
     }
 }
