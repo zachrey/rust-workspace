@@ -13,6 +13,6 @@ pub struct Args {
     pub count: u8,
 
     /// Interval Sleep Print
-    #[arg(short='s',long)]
-    pub sleep: Option<u8>
+    #[arg(short = 's', long)]
+    pub sleep: Option<u8>,
 }

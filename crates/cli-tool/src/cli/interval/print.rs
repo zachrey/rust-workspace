@@ -1,4 +1,4 @@
-use std::{time::Duration};
+use std::time::Duration;
 use tokio::time::sleep;
 
 pub async fn interval_print(count: u8) {
@@ -14,4 +14,3 @@ pub async fn interval_print(count: u8) {
         count = count - 1;
     }
 }
-

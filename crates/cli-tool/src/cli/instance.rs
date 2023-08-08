@@ -1,6 +1,6 @@
+use super::{args::Args, interval};
 use clap::Parser;
 use futures::executor::block_on;
-use super::{args::Args, interval};
 
 pub fn create_cli_instance() {
     let args = Args::parse();
@@ -10,7 +10,7 @@ pub fn create_cli_instance() {
             for _ in 0..args.count {
                 println!("Hello {}!", name);
             }
-        },
+        }
         None => {}
     }
 
@@ -18,7 +18,7 @@ pub fn create_cli_instance() {
         Some(times) => {
             let op = interval::print::interval_print(times);
             block_on(op);
-        },
+        }
         None => {}
     }
 }
