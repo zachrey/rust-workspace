@@ -1,9 +1,12 @@
-use super::{args::Args, interval};
+use super::{
+    args::{CliArgs, Commands},
+    interval,
+};
 use clap::Parser;
 use futures::executor::block_on;
 
 pub fn create_cli_instance() {
-    let args = Args::parse();
+    let args = CliArgs::parse();
 
     match args.name {
         Some(name) => {
@@ -20,5 +23,11 @@ pub fn create_cli_instance() {
             block_on(op);
         }
         None => {}
+    }
+
+    match &args.command {
+        Commands::Sleep(sleep_args) => {
+            block_on(interval::print::interval_print_v2(sleep_args));
+        }
     }
 }
