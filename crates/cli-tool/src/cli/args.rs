@@ -4,20 +4,16 @@ use clap::{Args, Parser, Subcommand};
 #[command(version)]
 #[command(about = "cli tools")]
 pub struct CliArgs {
-    /// Name of the person to greet
-    #[arg(short, long)]
-    pub name: Option<String>,
-
-    /// Number of times to greet
-    #[arg(short, long, default_value_t = 1)]
-    pub count: u8,
-
-    /// Interval Sleep Print
-    #[arg(short = 's', long)]
-    pub sleep: Option<u8>,
-
     #[command(subcommand)]
     pub command: Commands,
+}
+
+#[derive(Subcommand, Debug)]
+pub enum Commands {
+    /// start sleep
+    Sleep(SleepArgs),
+    /// url request
+    Request(RequestArgs),
 }
 
 #[derive(Args, Debug)]
@@ -31,8 +27,15 @@ pub struct SleepArgs {
     pub hour: bool,
 }
 
-#[derive(Subcommand, Debug)]
-pub enum Commands {
-    /// start sleep
-    Sleep(SleepArgs),
+#[derive(Args, Debug)]
+pub struct RequestArgs {
+    /// request url string
+    pub url: String,
+
+    /// request method
+    #[arg(short = 'm', long, default_value_t = String::from("Get"))]
+    pub method: String,
+
+    #[arg(short = 'd', long)]
+    pub data: Option<String>,
 }

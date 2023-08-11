@@ -10,7 +10,7 @@ pub fn create_tui_instance() -> CursiveRunnable {
     // 所有的 layer
     config_layer(&mut siv);
 
-    return siv;
+    siv
 }
 
 fn config_global(siv: &mut CursiveRunnable) {
