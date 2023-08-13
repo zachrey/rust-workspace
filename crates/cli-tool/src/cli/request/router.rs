@@ -22,6 +22,7 @@ impl RequestMethod {
     fn new(value: &String) -> Self {
         match value.as_str() {
             "Post" => Self::Post,
+            "post" => Self::Post,
             _ => Self::Get,
         }
     }
